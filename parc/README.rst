@@ -9,7 +9,30 @@ executing ELF binaries.
 Building PARC Applications
 ------------------------------------------------------------------------
 
-Without System Calls
+Prerequisition
+--------------------
+This requires ``pydgin-parc-xcc`` (``maven-sys-xcc``) cross-compiler.
+Goto pydgin-parc-xcc and read instructions how to compile the xcc.
+
+ASM Test Case
+--------------------
+   % cd $parc_home/asm_tests
+   % mkdir build
+   % cd build
+   % ../configure --host=maven
+   % make
+   % cd $parc_home
+
+   Run the ISS simulation:
+   % python ./parc-sim.py --test -d insts,rf asm_tests/build/parcv1-gcd
+
+   Or debug with ipdb:
+   % ipdb ./parc-sim.py --test -d insts,rf asm_tests/build/parcv1-gcd
+
+   Read more from on how to build GCD customized instruction.
+   https://github.com/kevinyuan/pydgin-parc-xcc/blob/master/README
+
+Building C Application Without System Calls
 --------------------
 
 This repository should contain a copy of the simplified ubmarks (without
@@ -24,7 +47,7 @@ servers) and execute the following::
   $ make ubmark-vvadd
 
 
-With System Calls
+Building C Application With System Calls
 ------------------
 
 The PARC ISS is also capable of executing more complicated benchmarks
