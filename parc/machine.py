@@ -17,6 +17,7 @@ class State( Machine ):
     # parc special
     self.src_ptr  = 0
     self.sink_ptr = 0
+    self.gcd_ncycles = 0
 
     # indicate if this is running a self-checking test
     self.testbin  = False
